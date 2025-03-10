@@ -14,13 +14,13 @@ ck-dl --seriesUrl "https://url-to-series.com/" --outputPath "/path/to/cbz/locati
 
 ## Bun commands
 
-To install dependencies:
+### To install dependencies:
 
 ```bash
 bun install
 ```
 
-To run:
+### To run:
 
 ```bash
 bun run index.ts --seriesUrl "https://url-to-series.com/" --outputPath "/path/to/cbz/location" --createXml
@@ -28,7 +28,7 @@ bun run index.ts --seriesUrl "https://url-to-series.com/" --outputPath "/path/to
 
 **--createXml** is optional. If present, a ComicInfo.xml file will be created in the cbz archive. Still in development.
 
-To compile to binary:
+### To compile to binary:
 
 ```bash
 bun run compile 
