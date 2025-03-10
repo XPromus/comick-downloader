@@ -11,7 +11,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "compile": "bun build index.ts --compile --outfile ./build/build"
+    "compile": "bun build index.ts --compile --outfile ./build/ck-dl"
   },
   "dependencies": {
     "archiver": "^7.0.1",
