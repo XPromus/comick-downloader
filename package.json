@@ -1,0 +1,26 @@
+{
+  "name": "comick-downloader",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/archiver": "^6.0.3",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "compile": "bun build index.ts --compile --outfile ./build/build"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "axios": "^1.8.2",
+    "buffer-image-size": "^0.6.4",
+    "fast-xml-parser": "^5.0.8",
+    "jimp": "^1.6.0",
+    "puppeteer": "^24.4.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
