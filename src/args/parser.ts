@@ -8,6 +8,9 @@ export const { values, positionals } = parseArgs({
         },
         outputPath: {
             type: "string"
+        },
+        createXml: {
+            type: "boolean"
         }
     },
     strict: true,
