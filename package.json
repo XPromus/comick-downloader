@@ -16,7 +16,9 @@
   "dependencies": {
     "archiver": "^7.0.1",
     "axios": "^1.8.2",
+    "axios-retry": "^4.5.0",
     "buffer-image-size": "^0.6.4",
+    "chalk": "^5.4.1",
     "fast-xml-parser": "^5.0.8",
     "jimp": "^1.6.0",
     "puppeteer": "^24.4.0",
