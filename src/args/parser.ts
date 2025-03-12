@@ -6,7 +6,13 @@ export const { values, positionals } = parseArgs({
         help: {
             type: "boolean"
         },
-        seriesUrl: {
+        series: {
+            type: "string"
+        },
+        language: {
+            type: "string"
+        },
+        group: {
             type: "string"
         },
         outputPath: {

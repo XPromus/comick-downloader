@@ -3,8 +3,8 @@ import archiver from "archiver";
 import { createComicInfo, createComicInfoXmlString } from "./comicInfo";
 import { values } from "../args/parser";
 
-export const createCbz = (images: Buffer[], outputPath: string) => {
-    const output = fs.createWriteStream(`${outputPath}/example.cbz`);
+export const createCbz = (images: Buffer[], outputPath: string, fileName: string) => {
+    const output = fs.createWriteStream(`${outputPath}/${fileName}.cbz`);
     const archive = archiver("zip", {
         zlib: { level: 0 }
     });

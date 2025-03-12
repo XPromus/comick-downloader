@@ -7,7 +7,7 @@ ck-dl --help
 ```
 
 ```bash
-ck-dl --seriesUrl "https://url-to-series.com/" --outputPath "/path/to/cbz/location" --createXml 
+ck-dl --series "series-name" --language "language" --group "group" --outputPath "/path/to/cbz/location" --createXml
 ```
 
 **--createXml** is optional. If present, a ComicInfo.xml file will be created in the cbz archive. Still in development.
@@ -23,7 +23,7 @@ bun install
 ### To run:
 
 ```bash
-bun run index.ts --seriesUrl "https://url-to-series.com/" --outputPath "/path/to/cbz/location" --createXml
+bun run index.ts --series "series-name" --language "language" --group "group" --outputPath "/path/to/cbz/location" --createXml
 ```
 
 **--createXml** is optional. If present, a ComicInfo.xml file will be created in the cbz archive. Still in development.

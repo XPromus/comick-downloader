@@ -1,5 +1,5 @@
 import type { ElementHandle, Page } from "puppeteer";
-import { readerSectionID } from "../config/config";
+import { readerSectionID } from "../../config/config";
 import axios from "axios";
 
 export const getChapterReaderElement = async (
@@ -13,7 +13,7 @@ export const getChapterReaderElement = async (
     throw new Error(`Element with id ${readerSectionID} could not be found`);
 }
 
-export const getChapterImages = async (
+export const getChapterImageURLs = async (
     readerElement: ElementHandle<Element>
 ): Promise<string[]> => {
     return await readerElement!!.$$eval("img", option => {
@@ -23,7 +23,7 @@ export const getChapterImages = async (
     });
 }
 
-export const downloadImageToBuffer = async (
+export const getChapterImageBuffers = async (
     url: string
 ): Promise<Buffer> => {
     const response = await axios.get(url, {
