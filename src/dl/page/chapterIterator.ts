@@ -1,4 +1,6 @@
 import type { Page } from "puppeteer";
+import { XPATH_CHAPTER_TABLE, XPATH_PAGE_NUMBER_CONTAINER } from "../web/xpathConfig";
+import { getChapterListPageURL, URL_BASE } from "../web/urlConfig";
 
 export const getChapterUrls = async (
     page: Page,
@@ -12,9 +14,7 @@ export const getChapterUrls = async (
     let returnList: string[] = [];
 
     for (let index = 0; index < numberOfPages; index++) {
-        const targetURL = `https://comick.io/comic/${seriesName}?date-order=&chap-order=1&lang=${language}&group=${group}&page=${index + 1}#chapter-header`;
-
-        await page.goto(targetURL); 
+        await page.goto(getChapterListPageURL(seriesName, language, group, index)); 
         await page.evaluate(() => {
             window.scrollTo(0, document.body.scrollHeight);
         });
@@ -29,7 +29,8 @@ export const getChapterUrls = async (
 const getNumberOfPages = async (
     page: Page
 ): Promise<number> => {
-    const pageNumberContainer = await page.$("xpath//html/body/div/main/div[2]/div/div[2]/div/div[2]/strong[3]");
+    await page.waitForSelector(XPATH_PAGE_NUMBER_CONTAINER);
+    const pageNumberContainer = await page.$(XPATH_PAGE_NUMBER_CONTAINER)!!;
     const text = await page.evaluate(el => el!!.textContent, pageNumberContainer);
     const numberOfPages = text!!.split("/")[1];
     return Number.parseInt(numberOfPages);
@@ -38,7 +39,8 @@ const getNumberOfPages = async (
 const getURLsFromTable = async (
     page: Page
 ): Promise<string[]> => {
-    const chapterTable = await page.$("xpath//html/body/div/main/div[2]/div/div[2]/div/div[3]/table/tbody");
+    await page.waitForSelector(XPATH_CHAPTER_TABLE);
+    const chapterTable = await page.$(XPATH_CHAPTER_TABLE)!!;
     return await chapterTable!!.$$eval("a", option => {
         return option.map(link => {
             return link.getAttribute("href");
@@ -48,6 +50,6 @@ const getURLsFromTable = async (
 
 const convertToURL = (paths: string[]): string[] => {
     return paths.map((path) => {
-        return `https://comick.io${path}`;
+        return `${URL_BASE}${path}`;
     })
 }
