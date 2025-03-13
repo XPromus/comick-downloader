@@ -20,6 +20,9 @@ export const execute = async () => {
     puppeteer.use(StealthPlugin());
 
     const outputPath: string = values.outputPath!!;
+
+    // TODO console.log(Object.keys(values).toString());
+
     const series: string = values.series!!;
     const language: string = values.language!!;
     const group: string = values.group!!;
