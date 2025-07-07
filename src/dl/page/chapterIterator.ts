@@ -44,7 +44,7 @@ const getURLsFromTable = async (
     return await chapterTable!!.$$eval("a", option => {
         return option.map(link => {
             return link.getAttribute("href");
-        }).filter(x => x !== null);
+        }).filter(x => x !== null).filter(x => x.startsWith("/comic/"));
     });
 }
 
